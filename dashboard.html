@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Veículos Cadastrados</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard-style.css">
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</head>
+<body id="body">
+    <div id="overlay" class="overlay" style="display: none;">
+        <div class="modal">
+            <p id="mensagem"></p>
+            <button class="button-login" onclick="fecharOverlay()">Fechar</button>
+        </div>
+    </div>
+    <header class="header-padrao">
+        <h1>Gestão de Frota</h1>
+        
+    </header>
+
+    <nav id="abas" class="abas">
+        <button id="btn-cadastrar" class="btn-aba" onclick="onCadastrarClick()">Cadastrar Veículo</button>
+        <button id="btn-listar" class="btn-aba" onclick="onListarClick()">Listar Frota</button>
+    </nav>
+
+    <div id="container-lista" class="container">
+        <h1 class="subtitulo">Veículos na Base de Dados</h1>
+        <table class="tabela" id="tabela-veiculos">
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Ano</th>
+                    <th>Placa</th>
+                    <th>Cor</th>
+                    <th>Combustível</th>
+                    <th>Quilometragem</th>
+                    <th>Renavam</th>
+                    <th>Chassi</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-veiculos-body"></tbody>
+        </table>
+    </div>
+
+    <form id="container-cadastro" class="container" onsubmit="cadastrarVeiculo(event)">
+        <h1 class="titulo">Novo Cadastro</h1>
+        <h4 class="subtitulo">Especificações do Veículo</h4>
+        
+        <div class="grupoLabelInput">
+            <label for="input-marca">Marca / Fabricante</label>
+            <input id="input-marca" placeholder="Ex: Volkswagen" type="text" required>
+        </div>
+
+        <div class="linha">
+            <div class="grupoLabelInput">
+                <label for="input-modelo">Modelo</label>
+                <input id="input-modelo" placeholder="Ex: Golf" type="text" required>
+            </div>
+            <div class="grupoLabelInput">
+                <label for="input-ano">Ano de Fabricação</label>
+                <input id="input-ano" placeholder="Ex: 2023" type="number" required>
+            </div>
+        </div>
+
+        <div class="linha">
+            <div class="grupoLabelInput">
+                <label for="input-placa">Placa</label>
+                <input id="input-placa" placeholder="AAA-0A00" type="text" required>
+            </div>
+            <div class="grupoLabelInput">
+                <label for="input-cor">Cor Predominante</label>
+                <input id="input-cor" placeholder="Ex: Prata" type="text" required>
+            </div>
+        </div>
+
+        <div class="linha">
+            <div class="grupoLabelInput">
+                <label for="input-combustivel">Tipo de Combustível</label>
+                <select class="input-default" id="input-combustivel" required>
+                    <option disabled selected value="">Selecione</option>
+                    <option value="Gasolina">Gasolina</option>
+                    <option value="Gasóleo">Gasóleo (Diesel)</option>
+                    <option value="Híbrido">Híbrido</option>
+                    <option value="Elétrico">Elétrico</option>
+                </select>
+            </div>
+        </div>
+
+        <h4 class="subtitulo">Documentação e Uso</h4>
+        <div class="linha">
+            <div class="grupoLabelInput">
+                <label for="input-km">Quilometragem Atual</label>
+                <input id="input-km" placeholder="0" type="number" required>
+            </div>
+            <div class="grupoLabelInput">
+                <label for="input-renavam">RENAVAM</label>
+                <input id="input-renavam" placeholder="00000000000" type="text" required>
+            </div>
+        </div>
+
+        <div class="grupoLabelInput">
+            <label for="input-chassi">Número do Chassi</label>
+            <input id="input-chassi" placeholder="Digite o chassi completo" type="text" required>
+        </div>
+
+        <button class="button-login" type="submit">Guardar Veículo</button>
+    </form>
+</body>
+</html>
