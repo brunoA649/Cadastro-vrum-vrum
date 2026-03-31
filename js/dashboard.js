@@ -5,7 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     onCadastrarClick();
     carregarTabela();
 });
-
+    function logout() {
+    localStorage.removeItem("usuarioLogado"); 
+    
+    window.location.href = "login.html"; 
+}
 function onListarClick() {
     document.getElementById("btn-listar").className = "btn-aba-selecionado";
     document.getElementById("btn-cadastrar").className = "btn-aba";
